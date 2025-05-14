@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Othello.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b1c91d17eab81d9b2eb01b92e1afedf1f871aa8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07c3e89b04049a1635da15c37087b38c26a859ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("Othello.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Othello.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
