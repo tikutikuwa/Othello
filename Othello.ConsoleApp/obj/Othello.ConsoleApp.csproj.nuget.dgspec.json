@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj": {}
+    "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj": {
+    "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.AI\\Othello.AI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj",
-        "projectName": "Othello.ConsoleApp",
-        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj",
-        "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.ConsoleApp\\obj\\",
+        "projectUniqueName": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.AI\\Othello.AI.csproj",
+        "projectName": "Othello.AI",
+        "projectPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.AI\\Othello.AI.csproj",
+        "packagesPath": "C:\\Users\\e1j22064\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.AI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e1j22064\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
-                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj"
+              "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj": {
+                "projectPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj"
               }
             }
           }
@@ -43,7 +48,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -64,21 +70,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
+    "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj",
-        "projectName": "Othello.Core",
-        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj",
-        "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\obj\\",
+        "projectUniqueName": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj",
+        "projectName": "Othello.ConsoleApp",
+        "projectPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.ConsoleApp\\Othello.ConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\e1j22064\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e1j22064\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,6 +96,80 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.AI\\Othello.AI.csproj": {
+                "projectPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.AI\\Othello.AI.csproj"
+              },
+              "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj": {
+                "projectPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj",
+        "projectName": "Othello.Core",
+        "projectPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\Othello.Core.csproj",
+        "packagesPath": "C:\\Users\\e1j22064\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e1j22064\\Documents\\School\\4th\\Network\\Othello\\Othello.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\e1j22064\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -103,7 +187,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -124,7 +209,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

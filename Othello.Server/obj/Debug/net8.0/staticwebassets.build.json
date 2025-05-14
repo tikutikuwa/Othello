@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "RyPgQ76eD73mOB62tyVTLsAwZ2rn0qJhFJNYIV5ufiU=",
+  "Hash": "JNJi01ADs+QZS31aXBFg+i8DCJssMWvghELp5MyA/QE=",
   "Source": "Othello.Server",
   "BasePath": "_content/Othello.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

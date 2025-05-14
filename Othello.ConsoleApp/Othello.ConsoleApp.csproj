@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Othello.AI\Othello.AI.csproj" />
     <ProjectReference Include="..\Othello.Core\Othello.Core.csproj" />
   </ItemGroup>
 
