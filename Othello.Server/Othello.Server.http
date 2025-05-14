@@ -1,0 +1,14 @@
+### ゲーム状態を取得
+GET http://localhost:5000/state
+Accept: application/json
+
+###
+
+### 石を置く（例：d3 = row 2, col 3）
+POST http://localhost:5000/move
+Content-Type: application/json
+
+{
+  "row": 2,
+  "col": 3
+}

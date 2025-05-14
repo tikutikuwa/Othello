@@ -1,0 +1,19 @@
+﻿<Window x:Class="Othello.Client.Wpf.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Othello GUI" Height="520" Width="480">
+    <DockPanel>
+        <!-- 通信中表示ラベル -->
+        <TextBlock x:Name="StatusText"
+                   DockPanel.Dock="Top"
+                   FontSize="16"
+                   Foreground="Red"
+                   Margin="10"
+                   HorizontalAlignment="Center"
+                   Text=""
+                   TextAlignment="Center" />
+
+        <!-- 盤面 -->
+        <UniformGrid x:Name="BoardGrid" Rows="8" Columns="8" />
+    </DockPanel>
+</Window>
