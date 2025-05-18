@@ -1,11 +1,14 @@
-using Othello.Core.Game;
+ï»¿using Othello.Core.Game;
 using Othello.Server.Models;
 using Othello.Shared;
 using System.Collections.Concurrent;
 using Microsoft.AspNetCore.SignalR;
+using System.Drawing;
+
+using Point = Othello.Core.Game.Point;
 
 
-#region DI“o˜^‚Æ‹N“®ˆ—
+#region DIç™»éŒ²ã¨èµ·å‹•å‡¦ç†
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
@@ -15,57 +18,112 @@ var hubContext = app.Services.GetRequiredService<IHubContext<GameHub>>();
 #endregion
 
 
-#region ƒ‚ƒfƒ‹Eó‘Ô‚Ì‰Šú‰»
+#region ãƒ¢ãƒ‡ãƒ«ãƒ»çŠ¶æ…‹ã®åˆæœŸåŒ–
 
-// ƒ}ƒbƒ`‚²‚Æ‚ÌƒQ[ƒ€ƒZƒbƒVƒ‡ƒ“ŠÇ—
+// ãƒãƒƒãƒã”ã¨ã®ã‚²ãƒ¼ãƒ ã‚»ãƒƒã‚·ãƒ§ãƒ³ç®¡ç†
 var sessions = new ConcurrentDictionary<string, GameSession>();
+var waitingPlayers = new Queue<(string MatchId, Session Session)>();
 
 #endregion
 
 
-#region ƒGƒ“ƒhƒ|ƒCƒ“ƒg: /join
+#region ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆ: /join
 
-// ƒvƒŒƒCƒ„[ or ŠÏíÒ‚ªƒQ[ƒ€‚ÉQ‰Á
-app.MapPost("/join", (JoinRequest request) =>
+string GenerateRandomMatchId()
 {
-    var matchId = request.MatchId ?? Guid.NewGuid().ToString();
+    var random = new Random();
+    string matchId;
+    do
+    {
+        matchId = random.Next(1000, 10000).ToString();
+    } while (sessions.ContainsKey(matchId));
+    return matchId;
+}
+
+IResult HandleJoinWithMatchId(JoinRequest request)
+{
+    var matchId = request.MatchId!;
     var game = sessions.GetOrAdd(matchId, _ => new GameSession());
 
     if (!request.IsObserver && game.Players.Count >= 2)
     {
-        Console.WriteLine($"[JOIN] Q‰Á‹‘”Û: {request.Name} ¨ matchId={matchId}i–ˆõj");
-        return Results.BadRequest(new { Error = "‚±‚Ì•”‰®‚Í–ˆõ‚Å‚·B" });
+        Console.WriteLine($"[JOIN] æ‹’å¦: {request.Name} â†’ matchId={matchId}ï¼ˆæº€å“¡ï¼‰");
+        return Results.BadRequest(new { Error = "ã“ã®éƒ¨å±‹ã¯æº€å“¡ã§ã™ã€‚" });
     }
 
     var sessionId = Guid.NewGuid();
-    Stone color = Stone.Empty;
+    Stone color = request.IsObserver ? Stone.Empty : (game.Players.Count == 0 ? Stone.Black : Stone.White);
+    var session = new Session(sessionId, request.Name, color);
 
     if (request.IsObserver)
     {
-        game.Observers.Add(new Session(sessionId, request.Name, Stone.Empty));
-        Console.WriteLine($"[OBSERVE] {request.Name} ‚ªŠÏí: matchId={matchId}, sessionId={sessionId}");
+        game.Observers.Add(session);
+        Console.WriteLine($"[OBSERVE] {request.Name} ãŒè¦³æˆ¦: matchId={matchId}");
     }
     else
     {
-        color = game.Players.Count == 0 ? Stone.Black : Stone.White;
-        game.Players.Add(new Session(sessionId, request.Name, color));
-        Console.WriteLine($"[JOIN] {request.Name} ‚ªQ‰Á: matchId={matchId}, sessionId={sessionId}, F={color}");
+        game.Players.Add(session);
+        Console.WriteLine($"[JOIN] {request.Name} ãŒå‚åŠ : matchId={matchId}, è‰²={color}");
     }
 
     return Results.Ok(new JoinResponse(sessionId, matchId, color, request.IsObserver));
+}
+
+// éåŒæœŸãƒ©ãƒ ãƒ€ã§ãƒãƒƒãƒãƒ³ã‚°å‡¦ç†
+app.MapPost("/join", async (JoinRequest request) =>
+{
+    if (!string.IsNullOrWhiteSpace(request.MatchId))
+    {
+        return HandleJoinWithMatchId(request);
+    }
+
+    if (request.IsObserver)
+    {
+        return Results.BadRequest(new { Error = "è¦³æˆ¦ã¯ãƒãƒƒãƒIDã®æŒ‡å®šãŒå¿…è¦ã§ã™ã€‚" });
+    }
+
+    // ãƒ©ãƒ³ãƒ€ãƒ ãƒãƒƒãƒãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰
+    if (waitingPlayers.TryDequeue(out var opponent))
+    {
+        var matchId = opponent.MatchId;
+        var game = sessions.GetOrAdd(matchId, _ => new GameSession());
+
+        var sessionId = Guid.NewGuid();
+        var session = new Session(sessionId, request.Name, Stone.White);
+        game.Players.Add(session);
+
+        Console.WriteLine($"[MATCHED] {request.Name} ãŒå¾…æ©Ÿè€…ã¨ãƒãƒƒãƒ: matchId={matchId}");
+
+        return await Task.FromResult(Results.Ok(
+            new JoinResponse(sessionId, matchId, Stone.White, request.IsObserver)));
+    }
+    else
+    {
+        var matchId = GenerateRandomMatchId();
+        var sessionId = Guid.NewGuid();
+        var session = new Session(sessionId, request.Name, Stone.Black);
+        waitingPlayers.Enqueue((matchId, session));
+
+        var game = sessions.GetOrAdd(matchId, _ => new GameSession());
+        game.Players.Add(session);
+
+        Console.WriteLine($"[WAIT] {request.Name} ãŒå¾…æ©Ÿä¸­: matchId={matchId}");
+
+        return Results.Ok(new JoinResponse(sessionId, matchId, Stone.Black, request.IsObserver));
+    }
 });
 
 # endregion
 
 
-#region ƒGƒ“ƒhƒ|ƒCƒ“ƒg: /state
+#region ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆ: /state
 
-// ƒNƒ‰ƒCƒAƒ“ƒg‚©‚çŒ»İ‚Ì”Õ–Êó‘Ô‚ğæ“¾
+// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‹ã‚‰ç¾åœ¨ã®ç›¤é¢çŠ¶æ…‹ã‚’å–å¾—
 app.MapGet("/state", (Guid sessionId, string matchId) =>
 {
     if (!sessions.TryGetValue(matchId, out var game))
     {
-        Console.WriteLine($"[STATE] ŠY“–ƒ}ƒbƒ`‚È‚µ: matchId={matchId}");
+        Console.WriteLine($"[STATE] è©²å½“ãƒãƒƒãƒãªã—: matchId={matchId}");
         return Results.NotFound();
     }
 
@@ -74,11 +132,11 @@ app.MapGet("/state", (Guid sessionId, string matchId) =>
 
     if (session is null)
     {
-        Console.WriteLine($"[STATE] ”FØ¸”s: sessionId={sessionId}, matchId={matchId}");
+        Console.WriteLine($"[STATE] èªè¨¼å¤±æ•—: sessionId={sessionId}, matchId={matchId}");
         return Results.Unauthorized();
     }
 
-    Console.WriteLine($"[STATE] ¬Œ÷: sessionId={sessionId}, matchId={matchId}, Turn={game.State.Turn}");
+    Console.WriteLine($"[STATE] æˆåŠŸ: sessionId={sessionId}, matchId={matchId}, Turn={game.State.Turn}");
 
     return Results.Ok(new
     {
@@ -96,9 +154,9 @@ app.MapGet("/state", (Guid sessionId, string matchId) =>
 #endregion
 
 
-#region ƒGƒ“ƒhƒ|ƒCƒ“ƒg: /move
+#region ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆ: /move
 
-// ƒvƒŒƒCƒ„[‚Ì’…èˆ—
+// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç€æ‰‹å‡¦ç†
 app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
 {
     if (!sessions.TryGetValue(matchId, out var game))
@@ -106,23 +164,23 @@ app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
 
     var session = game.Players.FirstOrDefault(p => p.Id == sessionId);
     if (session is null) return Results.Unauthorized();
-    if (game.State.Turn != session.Color) return Results.BadRequest(new { Error = "è”Ô‚Å‚Í‚ ‚è‚Ü‚¹‚ñB" });
+    if (game.State.Turn != session.Color) return Results.BadRequest(new { Error = "æ‰‹ç•ªã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚" });
 
     MoveRequest? moveDto = await req.ReadFromJsonAsync<MoveRequest>();
     if (moveDto is null)
     {
-        Console.WriteLine("[MOVE] –³Œø‚ÈƒŠƒNƒGƒXƒgƒ{ƒfƒBinullj");
-        return Results.BadRequest(new { Error = "ƒŠƒNƒGƒXƒgƒ{ƒfƒB‚ª•s³‚Å‚·B" });
+        Console.WriteLine("[MOVE] ç„¡åŠ¹ãªãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒœãƒ‡ã‚£ï¼ˆnullï¼‰");
+        return Results.BadRequest(new { Error = "ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒœãƒ‡ã‚£ãŒä¸æ­£ã§ã™ã€‚" });
     }
 
     var move = new Point(moveDto.Value.Row, moveDto.Value.Col);
 
     if (!game.State.TryMove(move, out var flipped))
-        return Results.BadRequest(new { Error = "•s³‚Èè‚Å‚·B" });
+        return Results.BadRequest(new { Error = "ä¸æ­£ãªæ‰‹ã§ã™ã€‚" });
 
-    Console.WriteLine($"[MOVE] ¬Œ÷: {move.Row},{move.Col} by {session.Color}");
+    Console.WriteLine($"[MOVE] æˆåŠŸ: {move.Row},{move.Col} by {session.Color}");
 
-    // SignalR ‚Å“¯‚¶ matchId ‚ÌƒNƒ‰ƒCƒAƒ“ƒg‚É’Ê’m
+    // SignalR ã§åŒã˜ matchId ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã«é€šçŸ¥
     await hubContext.Clients.Group(matchId).SendAsync("Update");
 
     return Results.Ok(new
@@ -138,7 +196,7 @@ app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
 #endregion
 
 
-#region SignalRƒnƒu“o˜^
+#region SignalRãƒãƒ–ç™»éŒ²
 
 app.MapHub<GameHub>("/gamehub");
 

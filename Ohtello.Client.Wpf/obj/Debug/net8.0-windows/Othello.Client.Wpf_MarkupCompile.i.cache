@@ -9,12 +9,12 @@ Othello.Client.Wpf
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-
-31301784809
+C:\Users\taken\source\repos\Othello\Othello\Ohtello.Client.Wpf\App.xaml
+2-491198715
 
 12319255129
 242-1910619653
-App.xaml;Views\GameWindow.xaml;Views\MainWindow.xaml;
+Views\GameWindow.xaml;Views\MainWindow.xaml;
 
-True
+False
 
