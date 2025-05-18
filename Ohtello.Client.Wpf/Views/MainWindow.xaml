@@ -1,56 +1,92 @@
 ﻿<Window x:Class="Othello.Client.Wpf.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Othello" Height="400" Width="420">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Title -->
-            <RowDefinition Height="Auto"/>
-            <!-- Name -->
-            <RowDefinition Height="Auto"/>
-            <!-- Mode -->
-            <RowDefinition Height="Auto"/>
-            <!-- MatchMode -->
-            <RowDefinition Height="Auto"/>
-            <!-- MatchID -->
-            <RowDefinition Height="Auto"/>
-            <!-- Start -->
-        </Grid.RowDefinitions>
+        Title="Othello"
+        Height="440"
+        Width="400"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="#5a9c6e">
 
-        <!-- タイトル -->
-        <TextBlock Text="🟢 Othello" FontSize="28" FontWeight="Bold"
-                   HorizontalAlignment="Center" Margin="0,10"/>
+    <Border Padding="20"
+            Background="#ffffff"
+            BorderBrush="#ddd"
+            BorderThickness="1"
+            CornerRadius="8"
+            Margin="20">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
 
-        <!-- 名前入力 -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
-            <TextBlock Text="名前：" Width="60"/>
-            <TextBox x:Name="NameBox" Width="200" MaxLength="8"/>
+            <!-- タイトル -->
+            <TextBlock Text="⚫ Othello"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="#333"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,16"/>
+
+            <!-- 名前入力 -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                <TextBlock Text="名前：" Width="70" VerticalAlignment="Center" Foreground="#444"/>
+                <TextBox x:Name="NameBox"
+                         Width="200"
+                         MaxLength="8"
+                         Background="#fff"
+                         BorderBrush="#ccc"/>
+            </StackPanel>
+
+            <!-- プレイモード -->
+            <GroupBox Header="モード選択" Padding="10" Margin="0,0,0,12" BorderBrush="#ccc">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton x:Name="PlayRadio"
+                                 Content="対戦"
+                                 IsChecked="True"
+                                 Margin="0,0,20,0"
+                                 Foreground="#333"
+                                 Checked="ObserveRadio_Checked"/>
+                    <RadioButton x:Name="ObserveRadio"
+                                 Content="観戦"
+                                 Foreground="#333"
+                                 Checked="ObserveRadio_Checked"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- マッチング方法 -->
+            <GroupBox Header="マッチ方法" Padding="10" Margin="0,0,0,12" BorderBrush="#ccc">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton x:Name="RandomMatchRadio"
+                                 Content="ランダムマッチング"
+                                 IsChecked="True"
+                                 Checked="MatchModeChanged"
+                                 Margin="0,0,0,5"
+                                 Foreground="#333"/>
+                    <RadioButton x:Name="ManualMatchRadio"
+                                 Content="IDを指定して参加"
+                                 Checked="MatchModeChanged"
+                                 Foreground="#333"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- マッチID入力欄 -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+                <TextBlock Text="マッチID：" Width="70" VerticalAlignment="Center" Foreground="#444"/>
+                <TextBox x:Name="MatchBox"
+                         Width="200"
+                         MaxLength="4"
+                         IsEnabled="False"
+                         Background="#fff"
+                         BorderBrush="#ccc"/>
+            </StackPanel>
+
+            <!-- 開始ボタン -->
+            <Button Content="ゲーム開始"
+                    Width="140"
+                    Height="36"
+                    Background="#444"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderBrush="#444"
+                    HorizontalAlignment="Center"
+                    Click="StartGame_Click"/>
         </StackPanel>
-
-        <!-- 対戦/観戦 -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0">
-            <RadioButton x:Name="PlayRadio" Content="対戦" IsChecked="True" Margin="0,0,10,0"/>
-            <RadioButton x:Name="ObserveRadio" Content="観戦"/>
-        </StackPanel>
-
-        <!-- マッチング方法選択 -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
-            <RadioButton x:Name="RandomMatchRadio" Content="ランダムマッチング" IsChecked="True" Margin="0,0,10,0"
-                         Checked="MatchModeChanged"/>
-            <RadioButton x:Name="ManualMatchRadio" Content="IDを指定して参加"
-                         Checked="MatchModeChanged"/>
-        </StackPanel>
-
-        <!-- マッチID入力欄（有効/無効） -->
-        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,10,0,0">
-            <TextBlock Text="マッチID：" Width="60"/>
-            <TextBox x:Name="MatchBox" Width="200" MaxLength="4" IsEnabled="False"/>
-        </StackPanel>
-
-        <!-- 開始ボタン -->
-        <Button Grid.Row="5" Content="ゲーム開始" Width="120" Height="30"
-                HorizontalAlignment="Center" Margin="0,20,0,0"
-                Click="StartGame_Click"/>
-    </Grid>
+    </Border>
 </Window>

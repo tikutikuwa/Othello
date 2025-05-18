@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using Othello.Client.Wpf.Models;
 using Othello.Core.Game;
@@ -17,22 +16,26 @@ public class BoardRenderer
         this.cells = cells;
     }
 
-    public void Render(GameStateDto state, PointDto? move = null, List<PointDto>? flipped = null)
+    public async Task RenderAsync(GameStateDto state, PointDto? move = null, List<PointDto>? flipped = null)
     {
         for (int r = 0; r < 8; r++)
+        {
             for (int c = 0; c < 8; c++)
             {
-                var border = cells[r, c];
-                border.Child = null;
+                cells[r, c].Child = null;
+            }
+        }
 
+        for (int r = 0; r < 8; r++)
+        {
+            for (int c = 0; c < 8; c++)
+            {
                 var stone = (Stone)state.Board[r][c];
+                var border = cells[r, c];
+
                 if (stone != Stone.Empty)
                 {
-                    bool isFlipped = flipped?.Any(p => p.Row == r && p.Col == c) == true;
-                    bool isMove = move?.Row == r && move?.Col == c;
-                    border.Child = isFlipped && !isMove
-                        ? AnimateFlip(stone)
-                        : CreateStone(stone);
+                    border.Child = CreateStone(stone);
                 }
                 else if (state.LegalMoves.Any(p => p.Row == r && p.Col == c))
                 {
@@ -40,13 +43,16 @@ public class BoardRenderer
                     {
                         Width = 12,
                         Height = 12,
-                        Fill = Brushes.Gray,
+                        Fill = Brushes.LightGray,
                         Opacity = 0.6,
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center
                     };
                 }
             }
+        }
+
+        await Task.CompletedTask; // 非同期互換のため
     }
 
     private Ellipse CreateStone(Stone stone)
@@ -77,49 +83,7 @@ public class BoardRenderer
             Fill = gradient,
             Stroke = Brushes.Black,
             StrokeThickness = 1.5,
-            Margin = new System.Windows.Thickness(4)
+            Margin = new Thickness(4)
         };
-    }
-
-    private Grid AnimateFlip(Stone toStone)
-    {
-        var stone = CreateStone(toStone);
-
-        var shadow = new Ellipse
-        {
-            Width = 40,
-            Height = 40,
-            Fill = Brushes.Transparent,
-            Margin = new System.Windows.Thickness(4),
-            Effect = new DropShadowEffect
-            {
-                Color = Colors.Black,
-                ShadowDepth = 2,
-                BlurRadius = 4,
-                Opacity = 0.4,
-                Direction = 315
-            }
-        };
-
-        var scale = new ScaleTransform(1, 1);
-        stone.RenderTransformOrigin = new System.Windows.Point(0.5, 0.5);
-        stone.RenderTransform = scale;
-
-        var animation = new System.Windows.Media.Animation.DoubleAnimation
-        {
-            From = 1,
-            To = -1,
-            Duration = TimeSpan.FromMilliseconds(300),
-            AutoReverse = false
-        };
-
-        scale.BeginAnimation(ScaleTransform.ScaleXProperty, animation);
-
-        if (stone.Fill is RadialGradientBrush brush)
-        {
-            brush.GradientOrigin = new System.Windows.Point(1.0 - brush.GradientOrigin.X, brush.GradientOrigin.Y);
-        }
-
-        return new Grid { Children = { shadow, stone } };
     }
 }

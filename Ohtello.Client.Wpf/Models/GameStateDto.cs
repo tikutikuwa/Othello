@@ -13,4 +13,9 @@ public class GameStateDto
     public List<PointDto> LegalMoves { get; set; } = [];
     public bool IsFinished { get; set; }
     public Stone? Winner { get; set; }
+
+    // プレイヤー名
+    public string? BlackPlayerName { get; set; }
+    public string? WhitePlayerName { get; set; }
+
 }
