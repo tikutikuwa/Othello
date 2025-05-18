@@ -54,7 +54,8 @@ namespace Othello.Client.Wpf.Views
                 var result = await api.JoinAsync(name, matchId, isObserver);
                 if (result != null)
                 {
-                    var gameWindow = new GameWindow(result.SessionId, result.MatchId);
+                    var gameWindow = new GameWindow(result.SessionId, result.MatchId, result.AssignedColor, result.IsObserver);
+
                     gameWindow.Show();
                     Close();
                 }
@@ -66,6 +67,24 @@ namespace Othello.Client.Wpf.Views
             catch (Exception ex)
             {
                 MessageBox.Show("サーバーに接続できませんでした。\n" + ex.Message);
+            }
+        }
+
+        private void ObserveRadio_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!isInitialized)
+            {
+                if (ObserveRadio.IsChecked == true)
+                {
+                    ManualMatchRadio.IsChecked = true;
+                    RandomMatchRadio.IsEnabled = false;
+                }
+                else
+                {
+                    RandomMatchRadio.IsEnabled = true;
+                }
+
+                MatchBox.IsEnabled = ManualMatchRadio.IsChecked == true;
             }
         }
 

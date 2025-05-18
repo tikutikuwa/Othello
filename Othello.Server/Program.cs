@@ -147,9 +147,13 @@ app.MapGet("/state", (Guid sessionId, string matchId) =>
         Winner = game.State.IsFinished(out var winner) ? winner : null,
         SessionId = sessionId,
         MatchId = matchId,
-        YourColor = session.Color
+        YourColor = session.Color,
+
+        BlackPlayerName = game.Players.FirstOrDefault(p => p.Color == Stone.Black)?.Name,
+        WhitePlayerName = game.Players.FirstOrDefault(p => p.Color == Stone.White)?.Name
     });
 });
+
 
 #endregion
 
@@ -181,7 +185,11 @@ app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
     Console.WriteLine($"[MOVE] 成功: {move.Row},{move.Col} by {session.Color}");
 
     // SignalR で同じ matchId のクライアントに通知
-    await hubContext.Clients.Group(matchId).SendAsync("Update");
+    await hubContext.Clients.Group(matchId).SendAsync("Update", new
+    {
+        Move = new { move.Row, move.Col },
+        Flipped = flipped.Select(p => new { p.Row, p.Col }).ToList()
+    });
 
     return Results.Ok(new
     {

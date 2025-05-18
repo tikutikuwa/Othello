@@ -1,28 +1,28 @@
-﻿#region using
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using System.Windows.Shapes;
 using Microsoft.AspNetCore.SignalR.Client;
 using Othello.Core.Game;
+using System.Text.Json;
 using Othello.Client.Wpf.Services;
 using Othello.Client.Wpf.Models;
 
 using Point = Othello.Core.Game.Point;
 using Othello.Client.Wpf.Views.Components;
 using System;
-#endregion
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Othello.Client.Wpf.Views
 {
-
     public partial class GameWindow : Window
     {
         #region フィールド
 
         private readonly Guid sessionId;
         private readonly string matchId;
+        private readonly Stone yourColor;
         private readonly OthelloApiClient api = new();
         private readonly Border[,] cells = new Border[8, 8];
         private readonly bool isObserver;
@@ -33,15 +33,17 @@ namespace Othello.Client.Wpf.Views
         private int[][]? previousBoard = null;
         private Stone? previousTurn = null;
 
-        #endregion
+        private Stone currentTurn = Stone.Empty;
 
+        #endregion
 
         #region 初期化
 
-        public GameWindow(Guid sessionId, string matchId, bool isObserver = false)
+        public GameWindow(Guid sessionId, string matchId, Stone yourColor, bool isObserver = false)
         {
             this.sessionId = sessionId;
             this.matchId = matchId;
+            this.yourColor = yourColor;
             this.isObserver = isObserver;
 
             InitializeComponent();
@@ -51,6 +53,7 @@ namespace Othello.Client.Wpf.Views
             _ = InitializeSignalRAsync();
         }
 
+
         private async Task InitializeSignalRAsync()
         {
             hub = new HubConnectionBuilder()
@@ -58,9 +61,18 @@ namespace Othello.Client.Wpf.Views
                 .WithAutomaticReconnect()
                 .Build();
 
-            hub.On("Update", async () =>
+            hub.On<JsonElement>("Update", async payload =>
             {
-                await Dispatcher.InvokeAsync(() => RedrawFromServerAsync());
+                PointDto? move = null;
+                List<PointDto>? flipped = null;
+
+                if (payload.TryGetProperty("Move", out var moveElem))
+                    move = JsonSerializer.Deserialize<PointDto>(moveElem.GetRawText());
+
+                if (payload.TryGetProperty("Flipped", out var flippedElem))
+                    flipped = JsonSerializer.Deserialize<List<PointDto>>(flippedElem.GetRawText());
+
+                await Dispatcher.InvokeAsync(() => RedrawFromServerAsync(move, flipped));
             });
 
             await hub.StartAsync();
@@ -69,12 +81,12 @@ namespace Othello.Client.Wpf.Views
 
         #endregion
 
-
         #region ボード構築・クリック処理
 
         private void BuildBoard()
         {
             for (int r = 0; r < 8; r++)
+            {
                 for (int c = 0; c < 8; c++)
                 {
                     var rect = new Border
@@ -88,16 +100,16 @@ namespace Othello.Client.Wpf.Views
                     cells[r, c] = rect;
                     BoardGrid.Children.Add(rect);
                 }
+            }
         }
 
         private async void OnCellClickAsync(object sender, RoutedEventArgs e)
         {
             if (isObserver) return; // 観戦者は打てない
+            if (yourColor != currentTurn) return; // 自分の手番じゃない
 
             if (sender is not Border b || b.Tag is not Point p) return;
-
-            if (!currentLegalMoves.Any(m => m.Row == p.Row && m.Col == p.Col))
-                return;
+            if (!currentLegalMoves.Any(m => m.Row == p.Row && m.Col == p.Col)) return;
 
             var result = await api.PostMoveAsync(p, sessionId, matchId);
             if (result?.Success == true)
@@ -106,7 +118,7 @@ namespace Othello.Client.Wpf.Views
             }
             else
             {
-                MessageBox.Show("非合法な手、または通信エラーです。", "着手エラー");
+                // MessageBox.Show("非合法な手、または通信エラーです。", "着手エラー");
             }
         }
 
@@ -123,6 +135,7 @@ namespace Othello.Client.Wpf.Views
             {
                 var state = await api.GetStateAsync(sessionId, matchId);
                 currentLegalMoves = state.LegalMoves;
+                currentTurn = state.Turn;
                 StatusText.Text = "";
 
                 if (previousBoard == null || previousTurn != state.Turn || !IsBoardEqual(previousBoard, state.Board))
@@ -150,19 +163,67 @@ namespace Othello.Client.Wpf.Views
 
         #region 描画ロジック
 
-        private void DrawBoard(GameStateDto state, PointDto? move = null, List<PointDto>? flipped = null)
+        private async void DrawBoard(GameStateDto state, PointDto? move = null, List<PointDto>? flipped = null)
         {
-            boardRenderer.Render(state, move, flipped);
-            Title = state.IsFinished
-                ? state.Winner switch
+            await boardRenderer.RenderAsync(state, move, flipped);
+
+            if (state.IsFinished)
+            {
+                TurnText.Text = state.Winner switch
                 {
-                    Stone.Black => "ゲーム終了！勝者: ● 黒",
-                    Stone.White => "ゲーム終了！勝者: ○ 白",
-                    null => "ゲーム終了！引き分け",
-                    _ => "ゲーム終了"
+                    Stone.Black => $"🎉 勝者：● {state.BlackPlayerName ?? "黒"}！",
+                    Stone.White => $"🎉 勝者：○ {state.WhitePlayerName ?? "白"}！",
+                    _ => "🎉 引き分け！"
+                };
+            }
+            else
+            {
+                string? name = state.Turn switch
+                {
+                    Stone.Black => state.BlackPlayerName,
+                    Stone.White => state.WhitePlayerName,
+                    _ => null
+                };
+
+                string symbol = state.Turn switch
+                {
+                    Stone.Black => "●",
+                    Stone.White => "○",
+                    _ => ""
+                };
+
+                string suffix = "";
+                if (!isObserver)
+                {
+                    if (yourColor == state.Turn)
+                        suffix = "（あなた）";
+                    else
+                        suffix = "（相手）";
                 }
-                : $"Othello - {state.Turn} の手番";
+
+                TurnText.Text = isObserver
+                    ? $"{symbol} {name} さんの番です"
+                    : $"{symbol} {name}{suffix} さんの番です";
+            }
+
+
+            // スコア集計・表示
+            int black = 0, white = 0;
+            foreach (var row in state.Board)
+            {
+                foreach (var s in row)
+                {
+                    if (s == (int)Stone.Black) black++;
+                    else if (s == (int)Stone.White) white++;
+                }
+            }
+
+            BlackScoreText.Text = black.ToString();
+            WhiteScoreText.Text = white.ToString();
+
+            Title = TurnText.Text;
         }
+
 
         #endregion
     }

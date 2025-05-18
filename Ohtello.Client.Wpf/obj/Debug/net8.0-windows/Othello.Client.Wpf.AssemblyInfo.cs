@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Othello.Client.Wpf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcb98ec1a700314e51ca1c9915c6086b2de4e0f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+788cfae7171338b71fceaffe4366f1a65af23f02")]
 [assembly: System.Reflection.AssemblyProductAttribute("Othello.Client.Wpf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Othello.Client.Wpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
