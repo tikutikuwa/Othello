@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zS8Z8j6PDSs=",
+  "dgSpecHash": "zgJPoko58nU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj",
+  "projectFilePath": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\taken\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\taken\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.3.0\\microsoft.aspnetcore.authorization.2.3.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj": {}
+    "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj": {
+    "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj",
+        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj",
         "projectName": "Othello.Client.Wpf",
-        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj",
+        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj",
         "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\obj\\",
+        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
-                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj"
+              "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj": {
+                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj"
               },
-              "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj": {
-                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj"
+              "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj": {
+                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
+    "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj",
+        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj",
         "projectName": "Othello.Core",
-        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj",
+        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj",
         "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\obj\\",
+        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj": {
+    "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj",
         "projectName": "Othello.Shared",
-        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj",
+        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj",
         "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\obj\\",
+        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -181,8 +181,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
-                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj"
+              "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj": {
+                "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj"
               }
             }
           }

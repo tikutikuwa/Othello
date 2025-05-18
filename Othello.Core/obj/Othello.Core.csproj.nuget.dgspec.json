@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {}
+    "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
+    "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj",
+        "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj",
         "projectName": "Othello.Core",
-        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj",
+        "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj",
         "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\obj\\",
+        "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",

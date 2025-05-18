@@ -2068,11 +2068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Othello.Server.csproj",
+      "projectUniqueName": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\Othello.Server.csproj",
       "projectName": "Othello.Server",
-      "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Othello.Server.csproj",
+      "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\Othello.Server.csproj",
       "packagesPath": "C:\\Users\\taken\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\obj\\",
+      "outputPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\taken\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2090,14 +2090,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\Othello.AI.csproj": {
-              "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\Othello.AI.csproj"
+            "C:\\Users\\taken\\source\\repos\\Othello\\Othello.AI\\Othello.AI.csproj": {
+              "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.AI\\Othello.AI.csproj"
             },
-            "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj": {
-              "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Core\\Othello.Core.csproj"
+            "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj": {
+              "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Core\\Othello.Core.csproj"
             },
-            "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj": {
-              "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj"
+            "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj": {
+              "projectPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Shared\\Othello.Shared.csproj"
             }
           }
         }
