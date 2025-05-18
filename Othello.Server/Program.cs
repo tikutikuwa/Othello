@@ -37,34 +37,81 @@ string GenerateRandomMatchId()
     return matchId;
 }
 
-IResult HandleJoinWithMatchId(JoinRequest request)
+async Task<IResult> HandleJoinWithMatchIdAsync(JoinRequest request, string connectionId)
 {
     var matchId = request.MatchId!;
     var game = sessions.GetOrAdd(matchId, _ => new GameSession());
 
-    if (!request.IsObserver && game.Players.Count >= 2)
-    {
-        Console.WriteLine($"[JOIN] 拒否: {request.Name} → matchId={matchId}（満員）");
-        return Results.BadRequest(new { Error = "この部屋は満員です。" });
-    }
-
     var sessionId = Guid.NewGuid();
     Stone color = request.IsObserver ? Stone.Empty : (game.Players.Count == 0 ? Stone.Black : Stone.White);
-    var session = new Session(sessionId, request.Name, color);
+    var session = new Session(sessionId, request.Name, color)
+    {
+        ConnectionId = connectionId
+    };
 
     if (request.IsObserver)
     {
         game.Observers.Add(session);
         Console.WriteLine($"[OBSERVE] {request.Name} が観戦: matchId={matchId}");
-    }
-    else
-    {
-        game.Players.Add(session);
-        Console.WriteLine($"[JOIN] {request.Name} が参加: matchId={matchId}, 色={color}");
+
+        // ゲームが開始済みなら即通知（プレイヤー2人いる＝開始済み）
+        if (game.Players.Count == 2 && !string.IsNullOrEmpty(connectionId))
+        {
+            await hubContext.Clients.Client(connectionId).SendAsync("MatchFound", new
+            {
+                MatchId = matchId,
+                SessionId = sessionId,
+                AssignedColor = (int)Stone.Empty
+            });
+            Console.WriteLine($"[SIGNALR] MatchFound sent to observer {session.Name} ({session.ConnectionId})");
+        }
+
+        return Results.Accepted();
     }
 
-    return Results.Ok(new JoinResponse(sessionId, matchId, color, request.IsObserver));
+    if (game.Players.Count >= 2)
+    {
+        Console.WriteLine($"[JOIN] 拒否: {request.Name} → matchId={matchId}（満員）");
+        return Results.BadRequest(new { Error = "この部屋は満員です。" });
+    }
+
+    game.Players.Add(session);
+    Console.WriteLine($"[JOIN] {request.Name} が参加: matchId={matchId}, 色={color}");
+
+    if (game.Players.Count == 2)
+    {
+        // プレイヤーが揃った：プレイヤー + 既存の観戦者にも通知
+        foreach (var p in game.Players)
+        {
+            if (!string.IsNullOrEmpty(p.ConnectionId))
+            {
+                await hubContext.Clients.Client(p.ConnectionId).SendAsync("MatchFound", new
+                {
+                    MatchId = matchId,
+                    SessionId = p.Id,
+                    AssignedColor = (int)p.Color
+                });
+            }
+        }
+
+        foreach (var o in game.Observers)
+        {
+            if (!string.IsNullOrEmpty(o.ConnectionId))
+            {
+                await hubContext.Clients.Client(o.ConnectionId).SendAsync("MatchFound", new
+                {
+                    MatchId = matchId,
+                    SessionId = o.Id,
+                    AssignedColor = (int)Stone.Empty
+                });
+            }
+        }
+    }
+
+    return Results.Accepted();
 }
+
+
 
 app.MapPost("/join", async (HttpRequest req, JoinRequest request) =>
 {
@@ -107,8 +154,9 @@ app.MapPost("/join", async (HttpRequest req, JoinRequest request) =>
 
     if (!string.IsNullOrWhiteSpace(request.MatchId))
     {
-        return HandleJoinWithMatchId(request); // マニュアルID対応は別途処理
+        return await HandleJoinWithMatchIdAsync(request, connectionId); // ← await & connectionId 渡す
     }
+
 
     if (request.IsObserver)
     {

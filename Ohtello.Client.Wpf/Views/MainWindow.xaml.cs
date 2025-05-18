@@ -11,11 +11,13 @@ namespace Othello.Client.Wpf.Views
     {
         private bool isInitialized = false;
         private HubConnection? hub;
+        private WaitingDialog? dialog;
 
         public MainWindow()
         {
             isInitialized = true;
             InitializeComponent();
+            this.Closed += (s, e) => dialog?.Close();
             isInitialized = false;
         }
 

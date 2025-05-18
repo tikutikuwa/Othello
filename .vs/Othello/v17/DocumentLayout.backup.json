@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\taken\\source\\repos\\Othello\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\waitingdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\waitingdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\waitingdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\waitingdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +19,24 @@
       "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\waitingdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\waitingdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\waitingdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\waitingdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello.server\\models\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\models\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello.server\\models\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\models\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\ohtello.client.wpf\\services\\othelloapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,17 +90,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "GameWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEIAAABUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T06:23:36.587Z",
               "IsPinned": true,
@@ -108,44 +108,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
-              "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T14:00:41.837Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\Program.cs",
               "RelativeDocumentMoniker": "Othello.Server\\Program.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\Program.cs",
               "RelativeToolTip": "Othello.Server\\Program.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAYwI0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAYwFIAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T13:47:37.671Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T15:58:51.958Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "WaitingDialog.xaml.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\WaitingDialog.xaml.cs",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\WaitingDialog.xaml.cs",
@@ -158,19 +134,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "WaitingDialog.xaml",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\WaitingDialog.xaml",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\WaitingDialog.xaml",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\WaitingDialog.xaml",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\WaitingDialog.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T16:08:09.214Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T16:08:09.214Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GameSession.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\Models\\GameSession.cs",
               "RelativeDocumentMoniker": "Othello.Server\\Models\\GameSession.cs",
@@ -178,25 +153,47 @@
               "RelativeToolTip": "Othello.Server\\Models\\GameSession.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T13:54:10.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T13:54:10.461Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAYwDcAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T14:00:07.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-18T14:00:41.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "GameWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
+              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
+              "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-18T15:58:51.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "GameHub.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello.Server\\Models\\GameHub.cs",
               "RelativeDocumentMoniker": "Othello.Server\\Models\\GameHub.cs",
@@ -204,8 +201,7 @@
               "RelativeToolTip": "Othello.Server\\Models\\GameHub.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T14:22:22.325Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T14:22:22.325Z"
             },
             {
               "$type": "Document",
@@ -217,8 +213,7 @@
               "RelativeToolTip": "Ohtello.Client.Wpf\\Services\\OthelloApiClient.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAYwDQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T14:01:45.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T14:01:45.427Z"
             },
             {
               "$type": "Document",
