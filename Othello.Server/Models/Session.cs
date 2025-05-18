@@ -8,4 +8,7 @@ namespace Othello.Server.Models;
 /// <param name="Id">このクライアントのセッションID</param>
 /// <param name="Name">表示名（プレイヤー名）</param>
 /// <param name="Color">割り当てられた石の色。観戦者は Stone.Empty</param>
-public record Session(Guid Id, string Name, Stone Color);
+public record class Session(Guid Id, string Name, Stone Color)
+{
+    public string? ConnectionId { get; set; }
+}

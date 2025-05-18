@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\taken\source\repos\Othello\Ohtello.Client.Wpf\App.xaml
-2-491198715
+3-1421310183
 
-12319255129
+13-147733440
 242-463510847
-Views\GameWindow.xaml;Views\MainWindow.xaml;
+Views\GameWindow.xaml;Views\MainWindow.xaml;Views\WaitingDialog.xaml;
 
 False
 

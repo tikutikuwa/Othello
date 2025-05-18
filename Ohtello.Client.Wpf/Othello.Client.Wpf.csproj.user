@@ -10,6 +10,9 @@
     <Compile Update="Views\GameWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\WaitingDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="App.xaml">
@@ -19,6 +22,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\GameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WaitingDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

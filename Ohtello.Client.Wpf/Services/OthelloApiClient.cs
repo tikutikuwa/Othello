@@ -13,6 +13,8 @@ namespace Othello.Client.Wpf.Services
         private readonly HttpClient _http;
         private readonly string _baseUrl;
 
+        public string ServerBaseUrl => _baseUrl;
+
         public OthelloApiClient(string baseUrl)
         {
             _baseUrl = baseUrl.TrimEnd('/');
@@ -33,13 +35,18 @@ namespace Othello.Client.Wpf.Services
             return res.IsSuccessStatusCode ? await res.Content.ReadFromJsonAsync<MoveResultDto>() : null;
         }
 
-        public async Task<JoinResponse?> JoinAsync(string name, string? matchId = null, bool isObserver = false, bool vsAI = false, int aiLevel = 4)
+        public async Task<bool> JoinAsync(string name, string? matchId, bool isObserver, bool vsAI, int aiLevel, string connectionId)
         {
             var req = new JoinRequest(name, matchId, isObserver, vsAI, aiLevel);
-            var res = await _http.PostAsJsonAsync($"{_baseUrl}/join", req);
-            return res.IsSuccessStatusCode
-                ? await res.Content.ReadFromJsonAsync<JoinResponse>()
-                : null;
+            var message = new HttpRequestMessage(HttpMethod.Post, $"{_baseUrl}/join")
+            {
+                Content = JsonContent.Create(req)
+            };
+            message.Headers.Add("X-ConnectionId", connectionId);
+            var res = await _http.SendAsync(message);
+            return res.IsSuccessStatusCode;
         }
+
     }
+
 }

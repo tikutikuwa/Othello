@@ -66,13 +66,22 @@ IResult HandleJoinWithMatchId(JoinRequest request)
     return Results.Ok(new JoinResponse(sessionId, matchId, color, request.IsObserver));
 }
 
-app.MapPost("/join", (JoinRequest request) =>
+app.MapPost("/join", async (HttpRequest req, JoinRequest request) =>
 {
+    var connectionId = req.HttpContext.Request.Headers["X-ConnectionId"].FirstOrDefault();
+    if (string.IsNullOrEmpty(connectionId))
+    {
+        return Results.BadRequest(new { Error = "接続IDが必要です。" });
+    }
+
     if (request.VsAI)
     {
         var matchId = GenerateRandomMatchId();
         var sessionId = Guid.NewGuid();
-        var player = new Session(sessionId, request.Name, Stone.Black);
+        var player = new Session(sessionId, request.Name, Stone.Black)
+        {
+            ConnectionId = connectionId
+        };
 
         var ai = new AlphaBetaAI(request.AiLevel);
         var aiSession = new Session(Guid.NewGuid(), "Computer", Stone.White);
@@ -85,12 +94,20 @@ app.MapPost("/join", (JoinRequest request) =>
 
         Console.WriteLine($"[JOIN] {request.Name} vs AI: matchId={matchId}, Depth={request.AiLevel}");
 
-        return Results.Ok(new JoinResponse(sessionId, matchId, Stone.Black, false));
+        // 即開始
+        await hubContext.Clients.Client(connectionId).SendAsync("MatchFound", new
+        {
+            MatchId = matchId,
+            SessionId = sessionId,
+            AssignedColor = (int)Stone.Black
+        });
+
+        return Results.Accepted();
     }
 
     if (!string.IsNullOrWhiteSpace(request.MatchId))
     {
-        return HandleJoinWithMatchId(request);
+        return HandleJoinWithMatchId(request); // マニュアルID対応は別途処理
     }
 
     if (request.IsObserver)
@@ -98,24 +115,52 @@ app.MapPost("/join", (JoinRequest request) =>
         return Results.BadRequest(new { Error = "観戦はマッチIDの指定が必要です。" });
     }
 
+    // マッチング処理
     if (waitingPlayers.TryDequeue(out var opponent))
     {
         var matchId = opponent.MatchId;
         var game = sessions.GetOrAdd(matchId, _ => new GameSession());
 
         var sessionId = Guid.NewGuid();
-        var session = new Session(sessionId, request.Name, Stone.White);
+        var session = new Session(sessionId, request.Name, Stone.White)
+        {
+            ConnectionId = connectionId
+        };
+
         game.Players.Add(session);
 
         Console.WriteLine($"[MATCHED] {request.Name} が待機者とマッチ: matchId={matchId}");
 
-        return Results.Ok(new JoinResponse(sessionId, matchId, Stone.White, request.IsObserver));
+        // 双方に通知
+        await hubContext.Clients.Client(opponent.Session.ConnectionId!).SendAsync("MatchFound", new
+        {
+            MatchId = matchId,
+            SessionId = opponent.Session.Id,
+            AssignedColor = (int)opponent.Session.Color
+        });
+        Console.WriteLine($"[SIGNALR] MatchFound sent to {session.Name} ({session.ConnectionId})");
+
+
+        await hubContext.Clients.Client(session.ConnectionId!).SendAsync("MatchFound", new
+        {
+            MatchId = matchId,
+            SessionId = session.Id,
+            AssignedColor = (int)session.Color
+        });
+
+        Console.WriteLine($"[SIGNALR] MatchFound sent to {session.Name} ({session.ConnectionId})");
+
+        return Results.Accepted();
     }
     else
     {
         var matchId = GenerateRandomMatchId();
         var sessionId = Guid.NewGuid();
-        var session = new Session(sessionId, request.Name, Stone.Black);
+        var session = new Session(sessionId, request.Name, Stone.Black)
+        {
+            ConnectionId = connectionId
+        };
+
         waitingPlayers.Enqueue((matchId, session));
 
         var game = sessions.GetOrAdd(matchId, _ => new GameSession());
@@ -123,7 +168,7 @@ app.MapPost("/join", (JoinRequest request) =>
 
         Console.WriteLine($"[WAIT] {request.Name} が待機中: matchId={matchId}");
 
-        return Results.Ok(new JoinResponse(sessionId, matchId, Stone.Black, request.IsObserver));
+        return Results.Accepted(); // まだ対戦相手がいないので通知はしない
     }
 });
 

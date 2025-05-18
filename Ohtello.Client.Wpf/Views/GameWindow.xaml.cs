@@ -54,11 +54,10 @@ namespace Othello.Client.Wpf.Views
         private async Task InitializeSignalRAsync()
         {
             hub = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5000/gamehub")
+                .WithUrl($"{api.ServerBaseUrl}/gamehub")
                 .WithAutomaticReconnect()
                 .Build();
 
-            // 対戦更新通知
             hub.On<JsonElement>("Update", async payload =>
             {
                 PointDto? move = null;
