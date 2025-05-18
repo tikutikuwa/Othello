@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__2",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__3",
     "RelativePath": "join",
     "HttpMethod": "POST",
     "IsController": false,
@@ -23,7 +23,7 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__4",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__5",
     "RelativePath": "move",
     "HttpMethod": "POST",
     "IsController": false,
@@ -50,7 +50,7 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__3",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__4",
     "RelativePath": "state",
     "HttpMethod": "GET",
     "IsController": false,

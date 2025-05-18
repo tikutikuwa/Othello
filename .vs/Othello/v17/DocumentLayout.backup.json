@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\models\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\models\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\models\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\models\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\models\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\models\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\othello.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\othello.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\views\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\views\\components\\boardrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\components\\boardrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBF87483-9141-4421-A54D-2F41FFCEDE38}|Othello.AI\\Othello.AI.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.ai\\alphabetaai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF87483-9141-4421-A54D-2F41FFCEDE38}|Othello.AI\\Othello.AI.csproj|solutionrelative:othello.ai\\alphabetaai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\services\\othelloapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,20 +51,24 @@
       "RelativeMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|solutionrelative:othello.shared\\joinresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\ohtello.client.wpf\\models\\gamestatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71208FA2-69A4-4A67-BE0D-C10CDF3333D2}|Ohtello.Client.Wpf\\Othello.Client.Wpf.csproj|solutionrelative:ohtello.client.wpf\\models\\gamestatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.shared\\moverequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|solutionrelative:othello.shared\\moverequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.shared\\joinrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|solutionrelative:othello.shared\\joinrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.shared\\othello.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C5886C82-FF22-442A-B5A0-A9FC75446699}|Othello.Shared\\Othello.Shared.csproj|solutionrelative:othello.shared\\othello.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.server\\othello.server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D74562D8-6A6F-4570-89D3-7406EC9784E3}|Othello.Server\\Othello.Server.csproj|solutionrelative:othello.server\\othello.server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF87483-9141-4421-A54D-2F41FFCEDE38}|Othello.AI\\Othello.AI.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.ai\\random.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF87483-9141-4421-A54D-2F41FFCEDE38}|Othello.AI\\Othello.AI.csproj|solutionrelative:othello.ai\\random.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF87483-9141-4421-A54D-2F41FFCEDE38}|Othello.AI\\Othello.AI.csproj|c:\\users\\taken\\source\\repos\\othello\\othello\\othello.ai\\iplayerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF87483-9141-4421-A54D-2F41FFCEDE38}|Othello.AI\\Othello.AI.csproj|solutionrelative:othello.ai\\iplayerai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,17 +78,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "GameWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAADgvxUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T06:23:36.587Z",
               "IsPinned": true,
@@ -72,125 +96,205 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GameWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\GameWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T13:39:30.25Z",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "Othello.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\appsettings.json",
+              "RelativeToolTip": "Othello.Server\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-18T15:16:13.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Othello.Server.http",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Othello.Server.http",
+              "RelativeDocumentMoniker": "Othello.Server\\Othello.Server.http",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Othello.Server.http",
+              "RelativeToolTip": "Othello.Server\\Othello.Server.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-05-18T15:15:12.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameHub.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Models\\GameHub.cs",
+              "RelativeDocumentMoniker": "Othello.Server\\Models\\GameHub.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Models\\GameHub.cs",
+              "RelativeToolTip": "Othello.Server\\Models\\GameHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T14:22:22.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "JoinResponse.cs",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\JoinResponse.cs",
-              "RelativeDocumentMoniker": "Othello.Shared\\JoinResponse.cs",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\JoinResponse.cs",
-              "RelativeToolTip": "Othello.Shared\\JoinResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T10:30:54.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T06:21:51.322Z",
+              "WhenOpened": "2025-05-18T14:00:07.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "GameSession.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Models\\GameSession.cs",
+              "RelativeDocumentMoniker": "Othello.Server\\Models\\GameSession.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Models\\GameSession.cs",
+              "RelativeToolTip": "Othello.Server\\Models\\GameSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T13:54:10.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T10:04:04.305Z",
+              "WhenOpened": "2025-05-18T14:00:41.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Othello.Shared.csproj",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj",
-              "RelativeDocumentMoniker": "Othello.Shared\\Othello.Shared.csproj",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\Othello.Shared.csproj",
-              "RelativeToolTip": "Othello.Shared\\Othello.Shared.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-18T12:11:25.872Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Program.cs",
               "RelativeDocumentMoniker": "Othello.Server\\Program.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Program.cs",
               "RelativeToolTip": "Othello.Server\\Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwCoAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T12:08:08.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GameStateDto.cs",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Models\\GameStateDto.cs",
-              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Models\\GameStateDto.cs",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Models\\GameStateDto.cs",
-              "RelativeToolTip": "Ohtello.Client.Wpf\\Models\\GameStateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T12:57:03.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BoardRenderer.cs",
-              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\Components\\BoardRenderer.cs",
-              "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Views\\Components\\BoardRenderer.cs",
-              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Views\\Components\\BoardRenderer.cs",
-              "RelativeToolTip": "Ohtello.Client.Wpf\\Views\\Components\\BoardRenderer.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T11:58:07.911Z",
+              "WhenOpened": "2025-05-18T13:47:37.671Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "OthelloApiClient.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Services\\OthelloApiClient.cs",
               "RelativeDocumentMoniker": "Ohtello.Client.Wpf\\Services\\OthelloApiClient.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Ohtello.Client.Wpf\\Services\\OthelloApiClient.cs",
               "RelativeToolTip": "Ohtello.Client.Wpf\\Services\\OthelloApiClient.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAYwCcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvw8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T12:36:36.582Z"
+              "WhenOpened": "2025-05-18T14:01:45.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Session.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Models\\Session.cs",
+              "RelativeDocumentMoniker": "Othello.Server\\Models\\Session.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Models\\Session.cs",
+              "RelativeToolTip": "Othello.Server\\Models\\Session.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T14:22:39.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "JoinResponse.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\JoinResponse.cs",
+              "RelativeDocumentMoniker": "Othello.Shared\\JoinResponse.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\JoinResponse.cs",
+              "RelativeToolTip": "Othello.Shared\\JoinResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T14:22:29.223Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "AlphaBetaAI.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\AlphaBetaAI.cs",
+              "RelativeDocumentMoniker": "Othello.AI\\AlphaBetaAI.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\AlphaBetaAI.cs",
+              "RelativeToolTip": "Othello.AI\\AlphaBetaAI.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAYwFIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T13:51:03.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Random.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\Random.cs",
+              "RelativeDocumentMoniker": "Othello.AI\\Random.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\Random.cs",
+              "RelativeToolTip": "Othello.AI\\Random.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T13:50:15.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MoveRequest.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\MoveRequest.cs",
+              "RelativeDocumentMoniker": "Othello.Shared\\MoveRequest.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\MoveRequest.cs",
+              "RelativeToolTip": "Othello.Shared\\MoveRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T14:22:30.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Othello.Server.csproj",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Othello.Server.csproj",
+              "RelativeDocumentMoniker": "Othello.Server\\Othello.Server.csproj",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Server\\Othello.Server.csproj",
+              "RelativeToolTip": "Othello.Server\\Othello.Server.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-18T13:49:05.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "JoinRequest.cs",
               "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\JoinRequest.cs",
               "RelativeDocumentMoniker": "Othello.Shared\\JoinRequest.cs",
               "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.Shared\\JoinRequest.cs",
               "RelativeToolTip": "Othello.Shared\\JoinRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T12:11:15.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IPlayerAI.cs",
+              "DocumentMoniker": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\IPlayerAI.cs",
+              "RelativeDocumentMoniker": "Othello.AI\\IPlayerAI.cs",
+              "ToolTip": "C:\\Users\\taken\\source\\repos\\Othello\\Othello\\Othello.AI\\IPlayerAI.cs",
+              "RelativeToolTip": "Othello.AI\\IPlayerAI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T13:44:31.745Z"
             }
           ]
         }
