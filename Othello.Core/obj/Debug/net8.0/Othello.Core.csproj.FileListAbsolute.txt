@@ -22,3 +22,4 @@ C:\Users\taken\source\repos\Othello\Othello\Othello.Core\obj\Debug\net8.0\Othell
 C:\Users\taken\source\repos\Othello\Othello\Othello.Core\obj\Debug\net8.0\refint\Othello.Core.dll
 C:\Users\taken\source\repos\Othello\Othello\Othello.Core\obj\Debug\net8.0\Othello.Core.pdb
 C:\Users\taken\source\repos\Othello\Othello\Othello.Core\obj\Debug\net8.0\ref\Othello.Core.dll
+C:\Users\taken\source\repos\Othello\Othello\Othello.Core\obj\Debug\net8.0\Othello.Core.csproj.AssemblyReference.cache

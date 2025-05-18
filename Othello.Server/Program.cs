@@ -1,10 +1,15 @@
 using Othello.Core.Game;
+using Othello.Server;
 using Othello.Server.Models;
 using Othello.Shared;
 using System.Collections.Concurrent;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSignalR();
 var app = builder.Build();
+var hubContext = app.Services.GetRequiredService<IHubContext<GameHub>>();
+
 
 // マッチごとのゲームセッション管理
 var sessions = new ConcurrentDictionary<string, GameSession>();
@@ -87,6 +92,9 @@ app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
 
     Console.WriteLine($"[MOVE] 成功: {move.Row},{move.Col} by {session.Color}");
 
+    // SignalR で同じ matchId のクライアントに通知
+    await hubContext.Clients.Group(matchId).SendAsync("Update");
+
     return Results.Ok(new
     {
         Success = true,
@@ -96,6 +104,10 @@ app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
         MatchId = matchId
     });
 });
+
+
+
+app.MapHub<GameHub>("/gamehub");
 
 
 app.Run();

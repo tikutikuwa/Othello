@@ -7,6 +7,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using Othello.Core.Game;
 using Othello.Shared;
+using Microsoft.AspNetCore.SignalR.Client;
 
 using Point = Othello.Core.Game.Point;
 
@@ -83,7 +84,8 @@ namespace Othello.Client.Wpf
         private int[][]? previousBoard = null;
         private Stone? previousTurn = null;
 
-        private bool pollingActive = true;
+        private HubConnection? hub;
+
 
         public GameWindow(Guid sessionId, string matchId)
         {
@@ -93,27 +95,28 @@ namespace Othello.Client.Wpf
             InitializeComponent();
             BuildBoard();
             _ = RedrawFromServerAsync();
-            StartPolling();
+            _ = InitializeSignalRAsync();
         }
 
-        private async void StartPolling()
+        private async Task InitializeSignalRAsync()
         {
-            while (pollingActive)
+            hub = new HubConnectionBuilder()
+                .WithUrl("http://localhost:5000/gamehub")
+                .WithAutomaticReconnect()
+                .Build();
+
+            hub.On("Update", async () =>
             {
-                await Task.Delay(1000);
-                try
+                await Dispatcher.InvokeAsync(async () =>
                 {
-                    await Dispatcher.InvokeAsync(async () =>
-                    {
-                        await RedrawFromServerAsync();
-                    });
-                }
-                catch
-                {
-                    pollingActive = false;
-                }
-            }
+                    await RedrawFromServerAsync();
+                });
+            });
+
+            await hub.StartAsync();
+            await hub.InvokeAsync("JoinMatch", matchId);
         }
+
 
 
         private void BuildBoard()
