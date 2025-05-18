@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\e1j22064\Documents\School\4th\Network\Othello\Ohtello.Client.Wpf\obj\Debug\net8.0-windows\
+C:\Users\taken\source\repos\Othello\Othello\Ohtello.Client.Wpf\obj\Debug\net8.0-windows\
 Othello.Client.Wpf
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\e1j22064\Documents\School\4th\Network\Othello\Ohtello.Client.Wpf\App.xaml
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\taken\source\repos\Othello\Othello\Ohtello.Client.Wpf\App.xaml
 2396499192
 
 7-399110525
-199-1735568122
+2001886400061
 GameWindow.xaml;MainWindow.xaml;
 
 False

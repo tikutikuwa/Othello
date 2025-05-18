@@ -1,4 +1,4 @@
-﻿namespace Othello.Server.Models;
+﻿namespace Othello.Shared;
 
 /// <summary>
 /// クライアントからの着手リクエストを受け取る構造体

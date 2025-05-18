@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Othello.Core\Othello.Core.csproj" />
+    <ProjectReference Include="..\Othello.Shared\Othello.Shared.csproj" />
   </ItemGroup>
 
 </Project>

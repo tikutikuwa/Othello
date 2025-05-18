@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using Othello.Core.Game;
+using Othello.Shared;
 
 using Point = Othello.Core.Game.Point;
 
@@ -45,31 +42,79 @@ namespace Othello.Client.Wpf
             Timeout = TimeSpan.FromSeconds(3)
         };
 
-        public async Task<GameStateDto> GetStateAsync()
+        public async Task<GameStateDto> GetStateAsync(Guid sessionId, string matchId)
         {
-            return await _http.GetFromJsonAsync<GameStateDto>("http://localhost:5000/state")
+            var url = $"http://localhost:5000/state?sessionId={sessionId}&matchId={matchId}";
+            return await _http.GetFromJsonAsync<GameStateDto>(url)
                 ?? throw new Exception("状態の取得に失敗しました");
         }
 
-        public async Task<MoveResultDto?> PostMoveAsync(Point p)
+        public async Task<MoveResultDto?> PostMoveAsync(Point p, Guid sessionId, string matchId)
         {
-            var res = await _http.PostAsJsonAsync("http://localhost:5000/move", p);
-            if (!res.IsSuccessStatusCode) return null;
-            return await res.Content.ReadFromJsonAsync<MoveResultDto>();
+            var url = $"http://localhost:5000/move?sessionId={sessionId}&matchId={matchId}";
+
+            var request = new MoveRequest(p.Row, p.Col);
+            var res = await _http.PostAsJsonAsync(url, request);
+
+            return res.IsSuccessStatusCode
+                ? await res.Content.ReadFromJsonAsync<MoveResultDto>()
+                : null;
         }
+
+        public async Task<JoinResponse?> JoinAsync(string name, string? matchId = null)
+        {
+            var req = new JoinRequest(name, matchId);
+            var res = await _http.PostAsJsonAsync("http://localhost:5000/join", req);
+            return res.IsSuccessStatusCode
+                ? await res.Content.ReadFromJsonAsync<JoinResponse>()
+                : null;
+        }
+
+
     }
 
     public partial class GameWindow : Window
     {
-        private readonly Border[,] cells = new Border[8, 8];
+        private readonly Guid sessionId;
+        private readonly string matchId;
         private readonly OthelloApiClient api = new();
+        private List<PointDto> currentLegalMoves = new();
+        private readonly Border[,] cells = new Border[8, 8];
+        private int[][]? previousBoard = null;
+        private Stone? previousTurn = null;
 
-        public GameWindow()
+        private bool pollingActive = true;
+
+        public GameWindow(Guid sessionId, string matchId)
         {
+            this.sessionId = sessionId;
+            this.matchId = matchId;
+
             InitializeComponent();
             BuildBoard();
             _ = RedrawFromServerAsync();
+            StartPolling();
         }
+
+        private async void StartPolling()
+        {
+            while (pollingActive)
+            {
+                await Task.Delay(1000);
+                try
+                {
+                    await Dispatcher.InvokeAsync(async () =>
+                    {
+                        await RedrawFromServerAsync();
+                    });
+                }
+                catch
+                {
+                    pollingActive = false;
+                }
+            }
+        }
+
 
         private void BuildBoard()
         {
@@ -91,8 +136,13 @@ namespace Othello.Client.Wpf
 
         private async void OnCellClickAsync(object sender, RoutedEventArgs e)
         {
-            if (sender is not Border b || b.Tag is not Point p) return;
-            var result = await api.PostMoveAsync(p);
+            if (sender is not Border b || b.Tag is not Point p)
+                return;
+
+            if (!currentLegalMoves.Any(m => m.Row == p.Row && m.Col == p.Col))
+                return;
+
+            var result = await api.PostMoveAsync(p, sessionId, matchId);
             if (result?.Success == true)
             {
                 await RedrawFromServerAsync(result.Move, result.Flipped);
@@ -109,9 +159,17 @@ namespace Othello.Client.Wpf
 
             try
             {
-                var state = await api.GetStateAsync();
+                var state = await api.GetStateAsync(sessionId, matchId);
+                currentLegalMoves = state.LegalMoves;
                 StatusText.Text = "";
-                DrawBoard(state, move, flipped);
+
+                // 差分チェック：盤面か手番に変化があった場合のみ描画
+                if (previousBoard == null || previousTurn != state.Turn || !IsBoardEqual(previousBoard, state.Board))
+                {
+                    DrawBoard(state, move, flipped);
+                    previousBoard = CloneBoard(state.Board);
+                    previousTurn = state.Turn;
+                }
             }
             catch (Exception ex)
             {
@@ -120,6 +178,21 @@ namespace Othello.Client.Wpf
                 Close();
             }
         }
+
+        private static bool IsBoardEqual(int[][] a, int[][] b)
+        {
+            for (int r = 0; r < 8; r++)
+                for (int c = 0; c < 8; c++)
+                    if (a[r][c] != b[r][c])
+                        return false;
+            return true;
+        }
+
+        private static int[][] CloneBoard(int[][] source)
+        {
+            return source.Select(row => row.ToArray()).ToArray();
+        }
+
 
         private void DrawBoard(GameStateDto state, PointDto? move = null, List<PointDto>? flipped = null)
         {
