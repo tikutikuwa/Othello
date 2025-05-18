@@ -1,91 +1,38 @@
-﻿using System.Net.Http;
-using System.Net.Http.Json;
+﻿#region using
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
-using Othello.Core.Game;
-using Othello.Shared;
 using Microsoft.AspNetCore.SignalR.Client;
+using Othello.Core.Game;
+using Othello.Client.Wpf.Services;
+using Othello.Client.Wpf.Models;
+
 
 using Point = Othello.Core.Game.Point;
+#endregion
 
 namespace Othello.Client.Wpf
 {
-    public class PointDto
-    {
-        public int Row { get; set; }
-        public int Col { get; set; }
-        public bool IsValid { get; set; }
-    }
-
-    public class GameStateDto
-    {
-        public int[][] Board { get; set; } = [];
-        public Stone Turn { get; set; }
-        public List<PointDto> LegalMoves { get; set; } = [];
-        public bool IsFinished { get; set; }
-        public Stone? Winner { get; set; }
-    }
-
-    public class MoveResultDto
-    {
-        public bool Success { get; set; }
-        public PointDto Move { get; set; } = new();
-        public List<PointDto> Flipped { get; set; } = [];
-    }
-
-    public class OthelloApiClient
-    {
-        private readonly HttpClient _http = new()
-        {
-            Timeout = TimeSpan.FromSeconds(3)
-        };
-
-        public async Task<GameStateDto> GetStateAsync(Guid sessionId, string matchId)
-        {
-            var url = $"http://localhost:5000/state?sessionId={sessionId}&matchId={matchId}";
-            return await _http.GetFromJsonAsync<GameStateDto>(url)
-                ?? throw new Exception("状態の取得に失敗しました");
-        }
-
-        public async Task<MoveResultDto?> PostMoveAsync(Point p, Guid sessionId, string matchId)
-        {
-            var url = $"http://localhost:5000/move?sessionId={sessionId}&matchId={matchId}";
-
-            var request = new MoveRequest(p.Row, p.Col);
-            var res = await _http.PostAsJsonAsync(url, request);
-
-            return res.IsSuccessStatusCode
-                ? await res.Content.ReadFromJsonAsync<MoveResultDto>()
-                : null;
-        }
-
-        public async Task<JoinResponse?> JoinAsync(string name, string? matchId = null)
-        {
-            var req = new JoinRequest(name, matchId);
-            var res = await _http.PostAsJsonAsync("http://localhost:5000/join", req);
-            return res.IsSuccessStatusCode
-                ? await res.Content.ReadFromJsonAsync<JoinResponse>()
-                : null;
-        }
-
-
-    }
 
     public partial class GameWindow : Window
     {
+        #region フィールド
+
         private readonly Guid sessionId;
         private readonly string matchId;
         private readonly OthelloApiClient api = new();
-        private List<PointDto> currentLegalMoves = new();
         private readonly Border[,] cells = new Border[8, 8];
+        private HubConnection? hub;
+
+        private List<PointDto> currentLegalMoves = new();
         private int[][]? previousBoard = null;
         private Stone? previousTurn = null;
 
-        private HubConnection? hub;
+        #endregion
 
+        #region 初期化
 
         public GameWindow(Guid sessionId, string matchId)
         {
@@ -107,17 +54,16 @@ namespace Othello.Client.Wpf
 
             hub.On("Update", async () =>
             {
-                await Dispatcher.InvokeAsync(async () =>
-                {
-                    await RedrawFromServerAsync();
-                });
+                await Dispatcher.InvokeAsync(() => RedrawFromServerAsync());
             });
 
             await hub.StartAsync();
             await hub.InvokeAsync("JoinMatch", matchId);
         }
 
+        #endregion
 
+        #region ボード構築・クリック処理
 
         private void BuildBoard()
         {
@@ -139,11 +85,8 @@ namespace Othello.Client.Wpf
 
         private async void OnCellClickAsync(object sender, RoutedEventArgs e)
         {
-            if (sender is not Border b || b.Tag is not Point p)
-                return;
-
-            if (!currentLegalMoves.Any(m => m.Row == p.Row && m.Col == p.Col))
-                return;
+            if (sender is not Border b || b.Tag is not Point p) return;
+            if (!currentLegalMoves.Any(m => m.Row == p.Row && m.Col == p.Col)) return;
 
             var result = await api.PostMoveAsync(p, sessionId, matchId);
             if (result?.Success == true)
@@ -156,6 +99,10 @@ namespace Othello.Client.Wpf
             }
         }
 
+        #endregion
+
+        #region 描画更新・状態取得
+
         private async Task RedrawFromServerAsync(PointDto? move = null, List<PointDto>? flipped = null)
         {
             StatusText.Text = "サーバーに接続中...";
@@ -166,7 +113,6 @@ namespace Othello.Client.Wpf
                 currentLegalMoves = state.LegalMoves;
                 StatusText.Text = "";
 
-                // 差分チェック：盤面か手番に変化があった場合のみ描画
                 if (previousBoard == null || previousTurn != state.Turn || !IsBoardEqual(previousBoard, state.Board))
                 {
                     DrawBoard(state, move, flipped);
@@ -182,20 +128,15 @@ namespace Othello.Client.Wpf
             }
         }
 
-        private static bool IsBoardEqual(int[][] a, int[][] b)
-        {
-            for (int r = 0; r < 8; r++)
-                for (int c = 0; c < 8; c++)
-                    if (a[r][c] != b[r][c])
-                        return false;
-            return true;
-        }
+        private static bool IsBoardEqual(int[][] a, int[][] b) =>
+            Enumerable.Range(0, 8).All(r => Enumerable.Range(0, 8).All(c => a[r][c] == b[r][c]));
 
-        private static int[][] CloneBoard(int[][] source)
-        {
-            return source.Select(row => row.ToArray()).ToArray();
-        }
+        private static int[][] CloneBoard(int[][] source) =>
+            source.Select(row => row.ToArray()).ToArray();
 
+        #endregion
+
+        #region 描画ロジック
 
         private void DrawBoard(GameStateDto state, PointDto? move = null, List<PointDto>? flipped = null)
         {
@@ -210,14 +151,7 @@ namespace Othello.Client.Wpf
                     {
                         var isFlipped = flipped?.Any(p => p.Row == r && p.Col == c) == true;
                         var isMove = move?.Row == r && move?.Col == c;
-                        if (isFlipped && !isMove)
-                        {
-                            border.Child = AnimateFlip(stone);
-                        }
-                        else
-                        {
-                            border.Child = CreateStone(stone);
-                        }
+                        border.Child = isFlipped && !isMove ? AnimateFlip(stone) : CreateStone(stone);
                     }
                     else if (state.LegalMoves.Any(p => p.Row == r && p.Col == c))
                     {
@@ -272,16 +206,7 @@ namespace Othello.Client.Wpf
                 Fill = gradient,
                 Stroke = Brushes.Black,
                 StrokeThickness = 1.5,
-                Margin = new Thickness(4),
-                //Effect = new System.Windows.Media.Effects.DropShadowEffect
-                //{
-                //    Color = Colors.Black,
-                //    ShadowDepth = 2,
-                //    BlurRadius = 4,
-                //    Opacity = 0.4,
-                //    Direction = 315 // 光が左上から来るように設定
-                //}
-
+                Margin = new Thickness(4)
             };
         }
 
@@ -289,7 +214,6 @@ namespace Othello.Client.Wpf
         {
             var stone = CreateStone(toStone);
 
-            // 固定方向の影を持つ石背景（非反転）
             var shadow = new Ellipse
             {
                 Width = 40,
@@ -325,11 +249,9 @@ namespace Othello.Client.Wpf
                 brush.GradientOrigin = new System.Windows.Point(1.0 - brush.GradientOrigin.X, brush.GradientOrigin.Y);
             }
 
-            return new Grid
-            {
-                Children = { shadow, stone }
-            };
+            return new Grid { Children = { shadow, stone } };
         }
 
+        #endregion
     }
 }

@@ -1,42 +1,66 @@
 using Othello.Core.Game;
-using Othello.Server;
 using Othello.Server.Models;
 using Othello.Shared;
 using System.Collections.Concurrent;
 using Microsoft.AspNetCore.SignalR;
+
+
+#region DI登録と起動処理
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
 var app = builder.Build();
 var hubContext = app.Services.GetRequiredService<IHubContext<GameHub>>();
 
+#endregion
+
+
+#region モデル・状態の初期化
 
 // マッチごとのゲームセッション管理
 var sessions = new ConcurrentDictionary<string, GameSession>();
 
-// /join: プレイヤーがゲームに参加する
+#endregion
+
+
+#region エンドポイント: /join
+
+// プレイヤー or 観戦者がゲームに参加
 app.MapPost("/join", (JoinRequest request) =>
 {
     var matchId = request.MatchId ?? Guid.NewGuid().ToString();
     var game = sessions.GetOrAdd(matchId, _ => new GameSession());
 
-    if (game.Players.Count >= 2)
+    if (!request.IsObserver && game.Players.Count >= 2)
     {
         Console.WriteLine($"[JOIN] 参加拒否: {request.Name} → matchId={matchId}（満員）");
         return Results.BadRequest(new { Error = "この部屋は満員です。" });
     }
 
-    var assignedColor = game.Players.Count == 0 ? Stone.Black : Stone.White;
-    var session = new Session(Guid.NewGuid(), request.Name, assignedColor);
-    game.Players.Add(session);
+    var sessionId = Guid.NewGuid();
+    Stone color = Stone.Empty;
 
-    Console.WriteLine($"[JOIN] {request.Name} が参加: matchId={matchId}, sessionId={session.Id}, 色={assignedColor}");
+    if (request.IsObserver)
+    {
+        game.Observers.Add(new Session(sessionId, request.Name, Stone.Empty));
+        Console.WriteLine($"[OBSERVE] {request.Name} が観戦: matchId={matchId}, sessionId={sessionId}");
+    }
+    else
+    {
+        color = game.Players.Count == 0 ? Stone.Black : Stone.White;
+        game.Players.Add(new Session(sessionId, request.Name, color));
+        Console.WriteLine($"[JOIN] {request.Name} が参加: matchId={matchId}, sessionId={sessionId}, 色={color}");
+    }
 
-    return Results.Ok(new JoinResponse(session.Id, matchId, assignedColor));
+    return Results.Ok(new JoinResponse(sessionId, matchId, color));
 });
 
+# endregion
 
-// /state: 現在の盤面状態を取得
+
+#region エンドポイント: /state
+
+// クライアントから現在の盤面状態を取得
 app.MapGet("/state", (Guid sessionId, string matchId) =>
 {
     if (!sessions.TryGetValue(matchId, out var game))
@@ -45,7 +69,9 @@ app.MapGet("/state", (Guid sessionId, string matchId) =>
         return Results.NotFound();
     }
 
-    var session = game.Players.FirstOrDefault(p => p.Id == sessionId);
+    var session = game.Players.FirstOrDefault(p => p.Id == sessionId)
+               ?? game.Observers.FirstOrDefault(p => p.Id == sessionId);
+
     if (session is null)
     {
         Console.WriteLine($"[STATE] 認証失敗: sessionId={sessionId}, matchId={matchId}");
@@ -67,8 +93,12 @@ app.MapGet("/state", (Guid sessionId, string matchId) =>
     });
 });
 
+#endregion
 
-// /move: プレイヤーの着手処理
+
+#region エンドポイント: /move
+
+// プレイヤーの着手処理
 app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
 {
     if (!sessions.TryGetValue(matchId, out var game))
@@ -105,9 +135,14 @@ app.MapPost("/move", async (HttpRequest req, Guid sessionId, string matchId) =>
     });
 });
 
+#endregion
 
+
+#region SignalRハブ登録
 
 app.MapHub<GameHub>("/gamehub");
+
+#endregion
 
 
 app.Run();

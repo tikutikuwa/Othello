@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Othello.Client.Wpf.Services;
 
 namespace Othello.Client.Wpf
 {
