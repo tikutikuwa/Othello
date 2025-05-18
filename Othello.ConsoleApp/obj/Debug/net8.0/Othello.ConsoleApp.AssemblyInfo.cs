@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Othello.ConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+962a8a15dedce647626baca470fcb7184aea5c90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3792218d586ea8e685d4838204c2e453cc874680")]
 [assembly: System.Reflection.AssemblyProductAttribute("Othello.ConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Othello.ConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

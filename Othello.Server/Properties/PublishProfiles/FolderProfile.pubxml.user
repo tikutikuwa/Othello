@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\taken\source\repos\Othello\Othello.Server\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2025-05-18T15:37:37.4698552Z||;True|2025-05-19T00:34:00.5048366+09:00||;</History>
+    <History>True|2025-05-18T17:43:06.1178707Z||;True|2025-05-19T00:37:37.4698552+09:00||;True|2025-05-19T00:34:00.5048366+09:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
