@@ -52,7 +52,7 @@ app.MapPost("/join", (JoinRequest request) =>
         Console.WriteLine($"[JOIN] {request.Name} Ç™éQâ¡: matchId={matchId}, sessionId={sessionId}, êF={color}");
     }
 
-    return Results.Ok(new JoinResponse(sessionId, matchId, color));
+    return Results.Ok(new JoinResponse(sessionId, matchId, color, request.IsObserver));
 });
 
 # endregion

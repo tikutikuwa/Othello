@@ -26,10 +26,14 @@ namespace Othello.Client.Wpf.Services
             return res.IsSuccessStatusCode ? await res.Content.ReadFromJsonAsync<MoveResultDto>() : null;
         }
 
-        public async Task<JoinResponse?> JoinAsync(string name, string? matchId = null)
+        public async Task<JoinResponse?> JoinAsync(string name, string? matchId = null, bool isObserver = false)
         {
-            var res = await _http.PostAsJsonAsync("http://localhost:5000/join", new JoinRequest(name, matchId));
-            return res.IsSuccessStatusCode ? await res.Content.ReadFromJsonAsync<JoinResponse>() : null;
+            var req = new JoinRequest(name, matchId, isObserver);
+            var res = await _http.PostAsJsonAsync("http://localhost:5000/join", req);
+            return res.IsSuccessStatusCode
+                ? await res.Content.ReadFromJsonAsync<JoinResponse>()
+                : null;
         }
+
     }
 }

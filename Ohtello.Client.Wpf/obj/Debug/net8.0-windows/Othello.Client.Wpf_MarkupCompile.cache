@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\taken\source\repos\Othello\Othello\Ohtello.Client.Wpf\App.xaml
-2396499192
+2-491198715
 
-9222135000
+10-1989554194
 242-1910619653
-GameWindow.xaml;MainWindow.xaml;
+Views\GameWindow.xaml;Views\MainWindow.xaml;
 
 False
 

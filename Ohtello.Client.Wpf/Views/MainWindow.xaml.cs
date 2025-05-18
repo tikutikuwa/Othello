@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Othello.Client.Wpf.Services;
 
-namespace Othello.Client.Wpf
+namespace Othello.Client.Wpf.Views
 {
     public partial class MainWindow : Window
     {
@@ -16,6 +16,7 @@ namespace Othello.Client.Wpf
         {
             string name = NameBox.Text.Trim();
             string matchId = MatchBox.Text.Trim();
+            bool isObserver = ObserveCheck.IsChecked == true;
 
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -25,10 +26,10 @@ namespace Othello.Client.Wpf
 
             try
             {
-                var result = await api.JoinAsync(name, matchId);
+                var result = await api.JoinAsync(name, matchId, isObserver);
                 if (result != null)
                 {
-                    var gameWindow = new GameWindow(result.SessionId, result.MatchId);
+                    var gameWindow = new GameWindow(result.SessionId, result.MatchId, result.IsObserver);
                     gameWindow.Show();
                     Close();
                 }
@@ -42,5 +43,6 @@ namespace Othello.Client.Wpf
                 MessageBox.Show("サーバーに接続できませんでした。\n" + ex.Message);
             }
         }
+
     }
 }

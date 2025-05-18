@@ -1,4 +1,4 @@
-﻿<Window x:Class="Othello.Client.Wpf.GameWindow"
+﻿<Window x:Class="Othello.Client.Wpf.Views.GameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Othello GUI" Height="520" Width="480">

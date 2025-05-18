@@ -1,4 +1,4 @@
-﻿<Window x:Class="Othello.Client.Wpf.MainWindow"
+﻿<Window x:Class="Othello.Client.Wpf.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Othello" Height="300" Width="400">
@@ -7,18 +7,20 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="名前：" Margin="0,10,0,0"/>
-        <TextBox x:Name="NameBox" Grid.Row="0" Margin="60,10,0,0" Width="200"/>
-
+        <TextBlock Text="名前：" Grid.Row="0"/>
+        <TextBox x:Name="NameBox" Grid.Row="0" Margin="60,0,0,0" Width="200"/>
 
         <TextBlock Text="マッチID：" Grid.Row="1" Margin="0,10,0,0"/>
         <TextBox x:Name="MatchBox" Grid.Row="1" Margin="60,10,0,0" Width="200"/>
 
-        <Button Grid.Row="2" Content="ゲーム開始" Margin="0,20,0,0" Width="120" Height="30"
-                HorizontalAlignment="Center"
-                Click="StartGame_Click"/>
+        <CheckBox x:Name="ObserveCheck" Grid.Row="2" Content="観戦モード" Margin="0,10,0,0"/>
+
+        <Button Grid.Row="3" Content="ゲーム開始" Margin="0,20,0,0" Width="120" Height="30"
+            HorizontalAlignment="Center"
+            Click="StartGame_Click"/>
     </Grid>
 </Window>
