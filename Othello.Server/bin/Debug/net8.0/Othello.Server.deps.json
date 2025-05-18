@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.SignalR": "1.2.0",
           "Microsoft.AspNetCore.SignalR.Client": "9.0.5",
+          "Othello.AI": "1.0.0",
           "Othello.Core": "1.0.0",
           "Othello.Shared": "1.0.0"
         },
@@ -444,6 +445,19 @@
           }
         }
       },
+      "Othello.AI/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR": "1.2.0",
+          "Microsoft.AspNetCore.SignalR.Client": "9.0.5",
+          "Othello.Core": "1.0.0"
+        },
+        "runtime": {
+          "Othello.AI.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Othello.Core/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.SignalR": "1.2.0",
@@ -812,6 +826,11 @@
       "sha512": "sha512-mxPWL9cgQos5PipA/1kg+GdG90HmMycQ077S5mlIWu+V1CGgVbmFiWcKRL+EQPSR8pmW1yVfzGEOrv0IJnrphA==",
       "path": "system.threading.channels/9.0.5",
       "hashPath": "system.threading.channels.9.0.5.nupkg.sha512"
+    },
+    "Othello.AI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Othello.Core/1.0.0": {
       "type": "project",

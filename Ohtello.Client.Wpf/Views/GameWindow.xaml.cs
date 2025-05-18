@@ -9,10 +9,6 @@ using Othello.Client.Wpf.Models;
 
 using Point = Othello.Core.Game.Point;
 using Othello.Client.Wpf.Views.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Othello.Client.Wpf.Views
 {
@@ -23,7 +19,7 @@ namespace Othello.Client.Wpf.Views
         private readonly Guid sessionId;
         private readonly string matchId;
         private readonly Stone yourColor;
-        private readonly OthelloApiClient api = new();
+        private readonly OthelloApiClient api;
         private readonly Border[,] cells = new Border[8, 8];
         private readonly bool isObserver;
         private HubConnection? hub;
@@ -39,12 +35,13 @@ namespace Othello.Client.Wpf.Views
 
         #region 初期化
 
-        public GameWindow(Guid sessionId, string matchId, Stone yourColor, bool isObserver = false)
+        public GameWindow(Guid sessionId, string matchId, Stone yourColor, bool isObserver, OthelloApiClient api)
         {
             this.sessionId = sessionId;
             this.matchId = matchId;
             this.yourColor = yourColor;
             this.isObserver = isObserver;
+            this.api = api;
 
             InitializeComponent();
             BuildBoard();
@@ -61,6 +58,7 @@ namespace Othello.Client.Wpf.Views
                 .WithAutomaticReconnect()
                 .Build();
 
+            // 対戦更新通知
             hub.On<JsonElement>("Update", async payload =>
             {
                 PointDto? move = null;
@@ -75,9 +73,29 @@ namespace Othello.Client.Wpf.Views
                 await Dispatcher.InvokeAsync(() => RedrawFromServerAsync(move, flipped));
             });
 
+            hub.On<JsonElement>("GameOver", async payload =>
+            {
+                int winnerValue = payload.GetProperty("Winner").GetInt32();
+                Stone winner = (Stone)winnerValue;
+
+                string message = winner switch
+                {
+                    Stone.Black => "🎉 勝者：● 黒！",
+                    Stone.White => "🎉 勝者：○ 白！",
+                    _ => "🎉 引き分け！"
+                };
+
+                await Dispatcher.InvokeAsync(() =>
+                {
+                    MessageBox.Show(message, "ゲーム終了", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Close();
+                });
+            });
+
             await hub.StartAsync();
             await hub.InvokeAsync("JoinMatch", matchId);
         }
+
 
         #endregion
 
@@ -175,6 +193,12 @@ namespace Othello.Client.Wpf.Views
                     Stone.White => $"🎉 勝者：○ {state.WhitePlayerName ?? "白"}！",
                     _ => "🎉 引き分け！"
                 };
+
+                await Task.Delay(3000);
+                var main = new MainWindow();
+                main.Show();
+                Close();
+                return;
             }
             else
             {

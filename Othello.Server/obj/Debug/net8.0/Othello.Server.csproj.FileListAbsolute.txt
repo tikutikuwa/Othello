@@ -92,3 +92,5 @@ C:\Users\taken\source\repos\Othello\Othello\Othello.Server\bin\Debug\net8.0\Syst
 C:\Users\taken\source\repos\Othello\Othello\Othello.Server\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\taken\source\repos\Othello\Othello\Othello.Server\bin\Debug\net8.0\System.Threading.Channels.dll
 C:\Users\taken\source\repos\Othello\Othello\Othello.Server\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\taken\source\repos\Othello\Othello\Othello.Server\bin\Debug\net8.0\Othello.AI.dll
+C:\Users\taken\source\repos\Othello\Othello\Othello.Server\bin\Debug\net8.0\Othello.AI.pdb
